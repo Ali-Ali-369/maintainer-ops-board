@@ -15,6 +15,7 @@
         </a>
         <nav class="nav-list" aria-label="Primary">
           <a class="nav-item active" href="#queue">Queue</a>
+          <a class="nav-item" href="#handoff">Handoff</a>
           <a class="nav-item" href="#release">Release</a>
           <a class="nav-item" href="#risk">Risk</a>
         </nav>
@@ -31,8 +32,12 @@
             <h1>Open-source operations</h1>
           </div>
           <div class="topbar-actions" role="group" aria-label="Board actions">
-            <button class="icon-button" id="mark-reviewed" type="button" title="Mark selected item reviewed" aria-label="Mark selected item reviewed">✓</button>
-            <button class="icon-button" id="export-note" type="button" title="Copy handoff note" aria-label="Copy handoff note">⎘</button>
+            <button class="action-button" id="mark-reviewed" type="button">Review</button>
+            <button class="action-button" id="export-markdown" type="button">Export MD</button>
+            <button class="action-button" id="export-json" type="button">Export JSON</button>
+            <button class="action-button" id="import-json" type="button">Import JSON</button>
+            <button class="action-button secondary" id="reset-board" type="button">Reset</button>
+            <input class="visually-hidden" id="board-file" type="file" accept="application/json,.json">
           </div>
         </header>
 
@@ -54,6 +59,12 @@
                   <option value="P2">P2</option>
                   <option value="P3">P3</option>
                 </select>
+                <select id="owner-filter" aria-label="Owner">
+                  <option value="all">All owners</option>
+                </select>
+                <select id="status-filter" aria-label="Status">
+                  <option value="all">All statuses</option>
+                </select>
               </div>
             </div>
             <div class="issue-table" role="table" aria-label="Issue queue">
@@ -68,6 +79,16 @@
           </section>
 
           <aside class="stack">
+            <section class="panel detail-panel" id="handoff" aria-labelledby="detail-title">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow">Selected item</p>
+                  <h2 id="detail-title">Maintainer handoff</h2>
+                </div>
+              </div>
+              <div id="issue-detail"></div>
+            </section>
+
             <section class="panel" aria-labelledby="activity-title">
               <div class="panel-header">
                 <div>

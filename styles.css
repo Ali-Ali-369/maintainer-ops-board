@@ -138,23 +138,43 @@ select {
 
 .topbar-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
+  justify-content: flex-end;
 }
 
-.icon-button {
-  width: 40px;
+.action-button {
   height: 40px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: var(--surface);
-  color: var(--ink);
+  background: #171a22;
+  color: #ffffff;
+  padding: 0 12px;
   cursor: pointer;
+  font-weight: 720;
 }
 
-.icon-button:hover,
-.icon-button:focus-visible {
+.action-button.secondary {
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.action-button:hover,
+.action-button:focus-visible {
   border-color: var(--blue);
   outline: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .metric-grid {
@@ -220,6 +240,7 @@ select {
 
 .filters {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   align-items: center;
 }
@@ -236,6 +257,10 @@ select {
 
 .filters input {
   width: min(260px, 34vw);
+}
+
+.filters select {
+  width: 142px;
 }
 
 .issue-table {
@@ -271,6 +296,77 @@ select {
 .issue-button:focus-visible {
   background: #eef5ff;
   outline: none;
+}
+
+.detail-panel {
+  min-height: 260px;
+}
+
+.detail-empty {
+  margin: 18px 0 0;
+  color: var(--muted);
+}
+
+.detail-card {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.detail-title {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.detail-title h3 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.detail-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.detail-field {
+  display: grid;
+  gap: 6px;
+}
+
+.detail-field span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 720;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.detail-field strong,
+.detail-field select {
+  min-height: 36px;
+}
+
+.detail-field select {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfcff;
+  color: var(--ink);
+  padding: 0 10px;
+}
+
+.handoff-preview {
+  margin: 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--ink);
+  white-space: pre-wrap;
+  font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
 
 .issue-heading {
@@ -526,7 +622,8 @@ select {
 
   .filters,
   .filters input,
-  .filters select {
+  .filters select,
+  .action-button {
     width: 100%;
   }
 
@@ -537,6 +634,10 @@ select {
   .issue-row {
     grid-template-columns: 1fr;
     align-items: start;
+  }
+
+  .detail-meta {
+    grid-template-columns: 1fr;
   }
 
   .issue-heading {

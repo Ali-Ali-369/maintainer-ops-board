@@ -11,6 +11,9 @@ The MVP is intentionally dependency-free:
 - Filters issues by priority, owner, and search text.
 - Updates queue counts and release readiness in the browser.
 - Includes a review-risk panel and weekly activity chart.
+- Persists local edits in browser storage.
+- Imports and exports board JSON for local maintainer workflows.
+- Exports Markdown handoff notes for release and review planning.
 
 ## Run
 
@@ -30,6 +33,19 @@ http://localhost:4175
 - `styles.css` - responsive dashboard layout.
 - `app.js` - state, filtering, rendering, and interactions.
 - `data/sample-board.json` - sample maintainer operations data.
+
+Board JSON uses this shape:
+
+```json
+{
+  "project": {},
+  "metrics": [],
+  "activity": [],
+  "issues": [],
+  "release": [],
+  "risks": []
+}
+```
 
 ## Roadmap
 
