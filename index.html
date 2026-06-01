@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Maintainer Ops Board</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Workspace">
+        <a class="brand" href="/" aria-label="Maintainer Ops Board home">
+          <img src="assets/mark.svg" alt="" width="36" height="36">
+          <span>Maintainer Ops Board</span>
+        </a>
+        <nav class="nav-list" aria-label="Primary">
+          <a class="nav-item active" href="#queue">Queue</a>
+          <a class="nav-item" href="#release">Release</a>
+          <a class="nav-item" href="#risk">Risk</a>
+        </nav>
+        <div class="sidebar-meta">
+          <span id="repo-name">Loading</span>
+          <strong id="release-name">v0.0.0</strong>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">June maintainer cycle</p>
+            <h1>Open-source operations</h1>
+          </div>
+          <div class="topbar-actions" role="group" aria-label="Board actions">
+            <button class="icon-button" id="mark-reviewed" type="button" title="Mark selected item reviewed" aria-label="Mark selected item reviewed">✓</button>
+            <button class="icon-button" id="export-note" type="button" title="Copy handoff note" aria-label="Copy handoff note">⎘</button>
+          </div>
+        </header>
+
+        <section class="metric-grid" id="metrics" aria-label="Operations metrics"></section>
+
+        <section class="main-grid">
+          <section class="panel queue-panel" id="queue" aria-labelledby="queue-title">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Triage</p>
+                <h2 id="queue-title">Review queue</h2>
+              </div>
+              <div class="filters" role="group" aria-label="Queue filters">
+                <input id="search" type="search" placeholder="Search queue">
+                <select id="priority-filter" aria-label="Priority">
+                  <option value="all">All priorities</option>
+                  <option value="P0">P0</option>
+                  <option value="P1">P1</option>
+                  <option value="P2">P2</option>
+                  <option value="P3">P3</option>
+                </select>
+              </div>
+            </div>
+            <div class="issue-table" role="table" aria-label="Issue queue">
+              <div class="issue-row issue-heading" role="row">
+                <span>Issue</span>
+                <span>Owner</span>
+                <span>Status</span>
+                <span>Risk</span>
+              </div>
+              <div id="issue-list"></div>
+            </div>
+          </section>
+
+          <aside class="stack">
+            <section class="panel" aria-labelledby="activity-title">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow">Throughput</p>
+                  <h2 id="activity-title">Weekly activity</h2>
+                </div>
+              </div>
+              <div class="chart" id="activity-chart" aria-label="Weekly activity chart"></div>
+            </section>
+
+            <section class="panel" id="release" aria-labelledby="release-title">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow">Readiness</p>
+                  <h2 id="release-title">Release gate</h2>
+                </div>
+                <strong id="release-score">0%</strong>
+              </div>
+              <div class="checklist" id="release-checklist"></div>
+            </section>
+          </aside>
+        </section>
+
+        <section class="panel" id="risk" aria-labelledby="risk-title">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Review</p>
+              <h2 id="risk-title">Risk register</h2>
+            </div>
+          </div>
+          <div class="risk-grid" id="risk-grid"></div>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="app.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "maintainer-ops-board",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static maintainer operations dashboard MVP",
+  "scripts": {
+    "test": "node scripts/smoke.mjs"
+  },
+  "keywords": [
+    "open-source",
+    "maintainers",
+    "dashboard",
+    "triage"
+  ],
+  "license": "MIT"
+}

@@ -1,0 +1,88 @@
+{
+  "project": {
+    "name": "Maintainer Ops Board",
+    "repo": "open-source/maintainer-ops-board",
+    "release": "0.3.0",
+    "window": "June 2026"
+  },
+  "metrics": [
+    { "label": "Open issues", "value": 42, "delta": "-8" },
+    { "label": "PRs awaiting review", "value": 11, "delta": "+3" },
+    { "label": "Release blockers", "value": 4, "delta": "-2" },
+    { "label": "Median response", "value": "18h", "delta": "-6h" }
+  ],
+  "activity": [
+    { "day": "Mon", "issues": 9, "prs": 4 },
+    { "day": "Tue", "issues": 5, "prs": 8 },
+    { "day": "Wed", "issues": 12, "prs": 5 },
+    { "day": "Thu", "issues": 8, "prs": 7 },
+    { "day": "Fri", "issues": 14, "prs": 6 },
+    { "day": "Sat", "issues": 4, "prs": 2 },
+    { "day": "Sun", "issues": 3, "prs": 3 }
+  ],
+  "issues": [
+    {
+      "id": 128,
+      "title": "Token masking misses multiline secrets",
+      "priority": "P0",
+      "type": "security",
+      "owner": "Ali",
+      "status": "Review",
+      "age": "2d",
+      "risk": 92
+    },
+    {
+      "id": 121,
+      "title": "CLI crashes on empty GitHub export",
+      "priority": "P1",
+      "type": "bug",
+      "owner": "Unassigned",
+      "status": "Needs repro",
+      "age": "5d",
+      "risk": 78
+    },
+    {
+      "id": 109,
+      "title": "Add Markdown export for release notes",
+      "priority": "P2",
+      "type": "feature",
+      "owner": "Ali",
+      "status": "Ready",
+      "age": "12d",
+      "risk": 46
+    },
+    {
+      "id": 103,
+      "title": "Document maintainer policy packs",
+      "priority": "P3",
+      "type": "docs",
+      "owner": "Community",
+      "status": "Open",
+      "age": "21d",
+      "risk": 18
+    },
+    {
+      "id": 97,
+      "title": "Dependency audit for parser package",
+      "priority": "P1",
+      "type": "dependency",
+      "owner": "Ali",
+      "status": "Blocked",
+      "age": "9d",
+      "risk": 84
+    }
+  ],
+  "release": [
+    { "label": "Security review", "done": false },
+    { "label": "Regression tests", "done": true },
+    { "label": "Docs updated", "done": true },
+    { "label": "Changelog drafted", "done": false },
+    { "label": "Dependency scan", "done": true }
+  ],
+  "risks": [
+    { "label": "Security-sensitive paths", "count": 3, "severity": "high" },
+    { "label": "PRs without tests", "count": 5, "severity": "medium" },
+    { "label": "Stale triage items", "count": 8, "severity": "medium" },
+    { "label": "Docs drift", "count": 4, "severity": "low" }
+  ]
+}
